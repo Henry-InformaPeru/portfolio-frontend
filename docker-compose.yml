@@ -1,0 +1,11 @@
+services:
+  portfolio-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3200}
+    container_name: portfolio-web
+    restart: unless-stopped
+    ports:
+      - "3002:3002"
